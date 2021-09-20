@@ -1,19 +1,26 @@
 // Keep track of all loaded buffers.
 var BUFFERS = {};
+const buffersArr = [];
 // Page-wide audio context.
 var context = null;
 
 // An object to track the buffers to load {name: path}
 var BUFFERS_TO_LOAD = {
-  // kick: 'sounds/kick.wav',
-  // snare: 'sounds/snare.wav',
-  // hihat: 'sounds/hihat.wav',
-  // jam: 'sounds/br-jam-loop.wav',
-  // crowd: 'sounds/clapping-crowd.wav',
-  // drums: 'sounds/blueyellow.wav',
-  // organ: 'sounds/organ-echo-chords.wav',
-  // techno: 'sounds/techno.wav'
-  song: 'https://ia600708.us.archive.org/6/items/Miss_Parka-17349/Bitmoth_-_04_-_sleevetunnel.mp3'
+  s1: 'https://ia800207.us.archive.org/1/items/f_pass012/pass012_-_01_clouds_in_my_home_-_s1.mp3',
+  r: 'https://ia803109.us.archive.org/10/items/s65038/02.%20R.mp3',
+  dwor: 'https://ia800207.us.archive.org/7/items/f_pass007/pass007_-_08_lazzich_-_dwor.mp3',
+  frettervine: 'https://ia800708.us.archive.org/6/items/Miss_Parka-17349/Bitmoth_-_03_-_frettervine.mp3',
+  oozingEyes: 'https://ia800303.us.archive.org/21/items/ns41/05-kidsok_nuit_-_oozing_from_her_eyes_noor_rmx.mp3',
+  autumnDay: 'https://ia600207.us.archive.org/7/items/f_pass007/pass007_-_02_lazzich_-_autumn_day.mp3',
+  myosote: 'https://ia902708.us.archive.org/9/items/PhobodekidsokNuit-Sgur/03-Myosote.mp3',
+  autumnFog: 'https://ia903005.us.archive.org/14/items/hw014/hw014_03_denis_mati_-_autumn_fog.mp3',
+  mythmagic1: 'https://ia904505.us.archive.org/19/items/MythMagic/01__.mp3',
+  block6: 'https://ia600901.us.archive.org/5/items/block_o/BLOCK6_vbr.mp3',
+  amazingGraze: 'https://ia903407.us.archive.org/2/items/vvaa-emit-one-emit-one-/10-Amazing%20Graze.mp3',
+  spike: 'https://ia903407.us.archive.org/2/items/vvaa-emit-one-emit-one-/09-Spike.mp3',
+  colouredSuns: 'https://ia600207.us.archive.org/7/items/f_pass007/pass007_-_05_lazzich_-_coloured_suns.mp3',
+  gelid: 'https://ia800708.us.archive.org/6/items/Miss_Parka-17349/Bitmoth_-_05_-_gelid.mp3',
+  sleevetunnel: 'https://ia600708.us.archive.org/6/items/Miss_Parka-17349/Bitmoth_-_04_-_sleevetunnel.mp3'
 };
 
 // Loads all sound samples into the buffers object.
@@ -24,6 +31,7 @@ function loadBuffers() {
   for (var name in BUFFERS_TO_LOAD) {
     var path = BUFFERS_TO_LOAD[name];
     names.push(name);
+    buffersArr.push(name);
     paths.push(path);
   }
   bufferLoader = new BufferLoader(context, paths, function(bufferList) {

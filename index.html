@@ -11,15 +11,17 @@
 <body>
   <header>a playlist of darkwave, dark ambient, netlabels, & experimental musics</header>
 
-  <main>
-    put the player here
-    <input type="button" onclick="CrossfadePlaylistSample.toggle();" value="Play/Pause">
+  <main class="main">
+    <p>Now Playing: <span id="name"></span></p>
+    <input id="play-pause" type="button" onclick="CrossfadePlaylistSample.toggle();" value="Play/Pause">
+
   </main>
 
   <footer>
     thanks for listening
   </footer>
 
+  <script src="domStuff.js"></script>
   <script src="bufferLoader.js"></script>
   <script src="init.js"></script>
   <script src="index.js"></script>

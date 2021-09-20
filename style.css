@@ -1,0 +1,41 @@
+input[type="button" i] {
+  border: none;
+}
+
+.main {
+  position: relative;
+}
+
+
+#play-pause {
+  animation: wait 7500ms forwards;
+  position: relative;
+  border: 1px solid red;
+  font-size: 2rem;
+  border-radius: 30px;
+  padding: 5px 10px;
+}
+
+#name {
+  font-size: 2rem;
+}
+
+@keyframes wait {
+  0% {
+    opacity: 0;
+    z-index: -10;
+    border: 1px solid red;
+  }
+
+  95% {
+    z-index: -10;
+    opacity: 0.5;
+    border: 1px solid red;
+  }
+
+  100% {
+    z-index: 10;
+    opacity: 1;
+    border: 3px solid green;
+  }
+}
