@@ -4,5 +4,5 @@ const name = document.getElementById('name');
  var count = 0;
 
  function updateName(text) {
-   name.innerHTML = text;
+  //  name.innerHTML = text;
  }

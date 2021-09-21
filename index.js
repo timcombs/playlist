@@ -103,7 +103,10 @@ CrossfadePlaylistSample.stop = function() {
 CrossfadePlaylistSample.toggle = function() {
   this.playing ? this.stop() : this.play();
   this.playing = !this.playing;
-  if (this.state === 'suspended') {
+  console.log(this.source.context.state);
+  name.innerText = this.source.context.state;
+  if (this.source.context.state === 'suspended') {
         this.resume();
+        
     }
 };
