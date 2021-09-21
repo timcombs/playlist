@@ -1,8 +1,12 @@
 // Keep track of all loaded buffers.
 var BUFFERS = {};
 const buffersArr = [];
+
 // Page-wide audio context.
 var context = null;
+
+// counter to keep track of which song to play
+ var count = 0;
 
 // An object to track the buffers to load {name: path}
 var BUFFERS_TO_LOAD = {
@@ -34,6 +38,12 @@ function loadBuffers() {
     buffersArr.push(name);
     paths.push(path);
   }
+
+  console.log('in loadBuffers', context);
+  if (context.state === 'suspended') {
+    context.resume();
+  }
+
   bufferLoader = new BufferLoader(context, paths, function(bufferList) {
     for (var i = 0; i < bufferList.length; i++) {
       var buffer = bufferList[i];
@@ -41,6 +51,7 @@ function loadBuffers() {
       BUFFERS[name] = buffer;
     }
   });
+
   bufferLoader.load();
 }
 
