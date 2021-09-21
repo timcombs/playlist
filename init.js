@@ -56,7 +56,10 @@ function loadAudioCtx() {
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     context = new AudioContext();
     context.onstatechange = function() {
-      console.log(context.state);
+      console.log('context.state onstatechange loadAudioCtx', context.state);
+      if (context.onstatechange === 'interrupted') {
+        context.resume();
+      }
     }
     context.resume();
     if (context) {
@@ -67,7 +70,7 @@ function loadAudioCtx() {
   }
   catch(e) {
     alert("Web Audio API is not supported in this browser");
-    console.log(e);
+  
   }
   loadBuffers();
 };
