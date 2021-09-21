@@ -59,6 +59,7 @@ function loadAudioCtx() {
     // Fix up prefixing
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     context = new AudioContext();
+    context.resume();
     if (context) {
       load.classList.add('goodbye');
       playPause.classList.add('hello');
@@ -67,6 +68,7 @@ function loadAudioCtx() {
   }
   catch(e) {
     alert("Web Audio API is not supported in this browser");
+    console.log(e);
   }
   loadBuffers();
 };

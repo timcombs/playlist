@@ -1,6 +1,4 @@
-input[type="button" i] {
-  border: none;
-}
+input[type="submit"]{ -webkit-appearance: none; }
 
 .main {
   position: relative;
@@ -21,7 +19,7 @@ input[type="button" i] {
 
 .load {
   position: relative;
-  border: 1px solid red;
+  border: 3px solid blue;
   font-size: 2rem;
   border-radius: 30px;
   padding: 5px 10px;
@@ -37,7 +35,7 @@ input[type="button" i] {
 .hello {
   animation: wait 7500ms forwards;
   position: relative;
-  border: 1px solid red;
+  border: 3px solid red;
   font-size: 2rem;
   border-radius: 30px;
   padding: 5px 10px;
@@ -47,13 +45,13 @@ input[type="button" i] {
   0% {
     opacity: 0;
     z-index: -10;
-    border: 1px solid red;
+    border: 3px solid red;
   }
 
   95% {
     z-index: -10;
     opacity: 0.5;
-    border: 1px solid red;
+    border: 3px solid red;
   }
 
   100% {
