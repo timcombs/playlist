@@ -55,6 +55,9 @@ function loadAudioCtx() {
     // Fix up prefixing
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     context = new AudioContext();
+    context.onstatechange = function() {
+      console.log(context.state);
+    }
     context.resume();
     if (context) {
       load.classList.add('goodbye');
