@@ -8,7 +8,18 @@ input[type="button" i] {
 
 
 #play-pause {
-  animation: wait 7500ms forwards;
+}
+
+#name {
+  font-size: 2rem;
+}
+
+.goodbye {
+  display: none;
+  transition: display 3000ms;
+}
+
+.load {
   position: relative;
   border: 1px solid red;
   font-size: 2rem;
@@ -16,8 +27,20 @@ input[type="button" i] {
   padding: 5px 10px;
 }
 
-#name {
+.invisible {
+  font-size: 0rem;
+  padding: 0;
+  border: none;
+  opacity: 0;
+}
+
+.hello {
+  animation: wait 7500ms forwards;
+  position: relative;
+  border: 1px solid red;
   font-size: 2rem;
+  border-radius: 30px;
+  padding: 5px 10px;
 }
 
 @keyframes wait {

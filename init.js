@@ -49,20 +49,26 @@ function loadBuffers() {
       var buffer = bufferList[i];
       var name = names[i];
       BUFFERS[name] = buffer;
+      console.log('in bufferLoader for-loop', context);
     }
   });
 
   bufferLoader.load();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+function loadAudioCtx() {
   try {
     // Fix up prefixing
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     context = new AudioContext();
+    if (context) {
+      load.classList.add('goodbye');
+      playPause.classList.add('hello');
+      playPause.classList.remove('invisible')
+    }
   }
   catch(e) {
     alert("Web Audio API is not supported in this browser");
   }
   loadBuffers();
-});
+};
