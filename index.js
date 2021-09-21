@@ -32,7 +32,7 @@ CrossfadePlaylistSample.play = function() {
     updateName(buffArr[count]);
     let bufferNow = songBuffers[buffArr[count]];
     let bufferLater = songBuffers[buffArr[count + 1]] || songBuffers[buffArr[0]];
-    console.log('bufferNow', bufferNow);
+    console.log('bufferNow', bufferNow, 'buffer before this');
     console.log('bufferLater', bufferLater);
 
     // name.innerHTML = buffersArr.name
