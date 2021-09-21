@@ -15,6 +15,7 @@ BufferLoader.prototype.loadBuffer = function(url, index) {
   var loader = this;
 
   request.onload = function() {
+    console.log(loader.context.state);
     // Asynchronously decode the audio file data in request.response
     loader.context.decodeAudioData(
       request.response,
@@ -28,7 +29,7 @@ BufferLoader.prototype.loadBuffer = function(url, index) {
           loader.onload(loader.bufferList);
       },
       function(error) {
-        console.error('decodeAudioData error', `xxx${error}xxx`);
+        console.error('decodeAudioData error', error);
       }
     );
   }

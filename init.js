@@ -39,7 +39,6 @@ function loadBuffers() {
     paths.push(path);
   }
 
-  console.log('in loadBuffers', context);
   if (context.state === 'suspended') {
     context.resume();
   }
@@ -49,7 +48,6 @@ function loadBuffers() {
       var buffer = bufferList[i];
       var name = names[i];
       BUFFERS[name] = buffer;
-      console.log('in bufferLoader for-loop', context);
     }
   });
 
